@@ -1,0 +1,25 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+.env
+
+# Large released datasets should be downloaded/provided locally, not committed.
+candidates.jsonl
+candidates.jsonl.gz
+
+# Generated outputs and reports
+submission.csv
+*.xlsx
+reports/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

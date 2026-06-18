@@ -1,0 +1,53 @@
+# Fill in personal/team details before uploading.
+team_name: "TODO"
+
+primary_contact:
+  name: "TODO"
+  email: "TODO"
+  phone: "TODO"
+
+team_members:
+  - name: "TODO"
+    email: "TODO"
+    role: "Developer"
+
+github_repo: "https://github.com/TODO/TODO"
+sandbox_link: "TODO"
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+compute:
+  platform: "Local Windows machine"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.13"
+  os: "Windows"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "ChatGPT"
+  - "Codex"
+
+ai_usage_summary: |
+  Used AI assistance to inspect challenge files, design the scoring approach,
+  implement and document the deterministic ranker, and validate the submission.
+  No hosted LLM/API calls are used during candidate ranking.
+
+methodology_summary: |
+  Compliance-first hybrid ranker for the Senior AI Engineer JD. The ranking
+  command streams the JSONL locally, scores title/career fit, retrieval/ranking
+  evidence, trusted AI skills, product-company context, experience band,
+  location/logistics, and Redrob behavioral availability. Suspicious profiles
+  are penalized through honeypot checks for impossible skill durations,
+  low-trust expert claims, and invalid dates. The system is CPU-only,
+  no-network, deterministic, and generates grounded reasoning from candidate
+  fields.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
