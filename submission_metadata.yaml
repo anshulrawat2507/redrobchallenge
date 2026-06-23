@@ -1,18 +1,18 @@
 # Fill in personal/team details before uploading.
-team_name: "TODO"
+team_name: "[Enter Your Team Name]"
 
 primary_contact:
-  name: "TODO"
-  email: "TODO"
-  phone: "TODO"
+  name: "[Enter Your Name]"
+  email: "[Enter Your Email]"
+  phone: "[Enter Your Phone Number]"
 
 team_members:
-  - name: "TODO"
-    email: "TODO"
+  - name: "[Enter Member 1 Name]"
+    email: "[Enter Member 1 Email]"
     role: "Developer"
 
-github_repo: "https://github.com/TODO/TODO"
-sandbox_link: "TODO"
+github_repo: "https://github.com/[Your_Username]/[Your_Repo_Name]"
+sandbox_link: "https://huggingface.co/spaces/[Your_Username]/redrob-ranker" # Or Streamlit Cloud link
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
 compute:

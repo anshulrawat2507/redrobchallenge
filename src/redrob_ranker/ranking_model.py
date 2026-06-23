@@ -36,18 +36,17 @@ class ModelDecision:
 
 
 HYBRID_MODEL_WEIGHTS = (
-    ModelWeight("title_fit", 0.190, "Current/recent role must be applied AI, ML, search, ranking, or data-science oriented."),
-    ModelWeight("jd_evidence", 0.200, "The JD primarily asks for retrieval, ranking, search, embeddings, and evaluation evidence."),
-    ModelWeight("trusted_skills", 0.150, "Skill lists matter only when supported by proficiency, duration, and endorsements."),
-    ModelWeight("product_company", 0.115, "Product-company context is explicitly preferred over pure services trajectories."),
-    ModelWeight("experience_band", 0.095, "The role prefers 5-9 years, with flexibility for strong adjacent signals."),
-    ModelWeight("behavior", 0.110, "Redrob behavioral signals determine whether the candidate is actually reachable."),
-    ModelWeight("location", 0.075, "Pune/Noida and major Indian cities are logistically stronger."),
-    ModelWeight("retrieval_agreement", 0.035, "Candidates found by multiple independent retrievers are more trustworthy."),
-    ModelWeight("production_evidence", 0.010, "Production/deployment language separates real systems from demos."),
+    ModelWeight("title_fit", 0.220, "Current/recent role must be applied AI, ML, search, ranking, or data-science oriented."),
+    ModelWeight("jd_evidence", 0.220, "The JD primarily asks for retrieval, ranking, search, embeddings, and evaluation evidence."),
+    ModelWeight("trusted_skills", 0.170, "Skill lists matter only when supported by proficiency, duration, and endorsements."),
+    ModelWeight("product_company", 0.100, "Product-company context is explicitly preferred over pure services trajectories."),
+    ModelWeight("experience_band", 0.090, "The role prefers 5-9 years, with flexibility for strong adjacent signals."),
+    ModelWeight("behavior", 0.090, "Redrob behavioral signals determine whether the candidate is actually reachable."),
+    ModelWeight("location", 0.050, "Pune/Noida and major Indian cities are logistically stronger."),
+    ModelWeight("retrieval_agreement", 0.045, "Candidates found by multiple independent retrievers are more trustworthy."),
+    ModelWeight("production_evidence", 0.005, "Production/deployment language separates real systems from demos."),
     ModelWeight("ranking_evaluation", 0.005, "NDCG/MRR/MAP/A-B evidence is a direct JD match."),
     ModelWeight("skill_assessment", 0.005, "Redrob skill assessments add light trust to claimed skills."),
-    ModelWeight("hireability", 0.010, "Notice, activity, response, and interview reliability are practical hiring signals."),
 )
 
 
