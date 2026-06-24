@@ -126,54 +126,51 @@ based on observed behavior instead of intuition alone.
 
 ```text
 base =
-  0.20 * title
-+ 0.20 * JD evidence
+  0.22 * title
++ 0.22 * JD evidence
 + 0.17 * trusted skills
-+ 0.13 * company context
-+ 0.10 * experience fit
-+ 0.08 * location/logistics
-+ 0.12 * Redrob behavior
++ 0.10 * company context
++ 0.09 * experience fit
++ 0.05 * location/logistics
++ 0.09 * Redrob behavior
++ 0.06 * (retrieval agreement, evaluation, etc.)
 
-final = base * (1 - honeypot_risk)
+final = base * (1 - honeypot_risk) * penalty_multiplier
 ```
 
 The top 100 are sorted by final score descending, then by lower risk, then by
 candidate ID for deterministic tie-breaking.
 
-## Explainability
+## Explainability (Phase 9)
 
 Each row's reasoning mentions:
 
 - current title and years of experience
 - current industry
 - top matched evidence skills
-- component scores for title and JD evidence
-- recruiter response rate
-- notice period
-- location
-- honest concerns for lower-ranked or imperfect candidates
+- location, recruiter response rate, and notice period
+- honest concerns for lower-ranked or imperfect candidates (e.g., "long notice", "service-company background")
 
-Reasoning is generated only from candidate fields, so it is safe for manual
-review and avoids hallucinated claims.
+Reasoning is generated only from candidate fields using a strict natural language template, so it is safe for manual review and avoids hallucinated claims.
 
-## Demo Script
+## Evaluation Harness (Phase 10)
+
+The `tests/test_ranking.py` suite explicitly verifies:
+- Validation CSV limits (exactly 100 outputs).
+- Perfect determinism checking.
+- Output arrays having monotonic decreasing scores.
+- Honeypot volume protection.
+
+## Demo Script (Phase 11)
+
+To demonstrate the system to judges interactively, the ranker has been wrapped in a local Streamlit application (`app.py`). 
 
 1. Show the JD and explain the target: production AI/search/ranking engineer,
    not keyword-stuffed AI profiles.
-2. Run:
+2. Run the UI:
 
    ```bash
-   python rank.py --candidates ./candidates.jsonl --out ./submission.csv
+   python -m streamlit run app.py
    ```
-
-3. Run:
-
-   ```bash
-   python validate_submission.py ./submission.csv
-   ```
-
-4. Open the top rows of `submission.csv` and point out why the candidates are
-   strong: AI/search titles, retrieval/vector evidence, product industries,
-   location fit, and active Redrob signals.
-5. Show one lower-ranked row with a concern such as long notice, weak location,
-   not open to work, or suspicious skill duration.
+3. Upload `candidates.jsonl` dynamically into the browser to trigger memory-safe processing without dependencies. 
+4. Hit download to extract the strictly compliant formatted `submission.csv`!
